@@ -1,31 +1,64 @@
 import { useState } from "react";
 
-const initialForm = {
-  title: "title",
-  entry: "entry",
-  mood: 5,
-};
+const token =
+  "patKTXIqrZPZMbcrF.d8be823da8d1aeff586598a1f97f961cf33ba3de31cc4a0e03c2f7962ea0989a";
 
-export default function JournalEntry({ addToJournal }) {
-  const [data, setData] = useState(initialForm);
+export default function JournalEntry({ createEntry }) {
+  const [data, setData] = useState({
+    title: "",
+    body: "",
+    mood: "",
+    phase: "",
+    date: "",
+  });
 
   const handleTitleChange = (event) => {
     setData({ ...data, title: event.target.value });
   };
-  const handleEntryChange = (event) => {
+  const handleBodyChange = (event) => {
     console.log(event.target.value);
-    setData({ ...data, entry: event.target.value });
+    setData({ ...data, body: event.target.value });
   };
   const handleMoodChange = (event) => {
     setData({ ...data, mood: event.target.value });
   };
-  const handleSubmit = (event) => {
+  //   const handleSubmit = (event) => {
+  //     event.preventDefault();
+  //     const formData = new FormData(event.target);
+  //     const data = Object.fromEntries(formData);
+  //     const createEntry = async () => {
+  //       const url = "https://api.airtable.com/v0/appRIGgG5hdxdDksC/Table%201";
+  //       const response = await fetch(url, {
+  //         method: "POST",
+  //         headers: {
+  //           "Content-Type": "application/json",
+  //           Authorization: `Bearer ${token}`,
+  //         },
+  //         body: JSON.stringify(data),
+  //       });
+  //       const jsonData = await response.json();
+  //       addEntry(jsonData);
+  //     };
+  //     createEntry();
+  //   };
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData(event.target);
-    const submitData = Object.fromEntries(formData);
-    addToJournal(submitData);
+    const data = Object.fromEntries(formData);
+    const url = "https://api.airtable.com/v0/appRIGgG5hdxdDksC/Table%201";
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify(data),
+    });
+    const jsonData = await response.json();
+    setData({ ...data, ...jsonData });
+    createEntry(jsonData);
   };
-  const handleAdd = () => {};
 
   return (
     <>
@@ -42,10 +75,10 @@ export default function JournalEntry({ addToJournal }) {
           <br />
 
           <textarea
-            id="entry"
-            name="entry"
-            onChange={handleEntryChange}
-            value={data.entry}
+            id="body"
+            name="body"
+            onChange={handleBodyChange}
+            value={data.body}
             rows={10}
             cols={50}
           />
@@ -64,7 +97,7 @@ export default function JournalEntry({ addToJournal }) {
             <option value={5}>5</option>
           </select>
           <br />
-          <button onClick={handleAdd}>submit</button>
+          <button type="submit">submit</button>
         </fieldset>
       </form>
     </>
