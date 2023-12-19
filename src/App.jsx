@@ -22,7 +22,13 @@ function App() {
         },
       });
       const entriesData = await response.json();
-      setEntries(entriesData.records);
+      const sortEntries = entriesData.records.sort((a, b) => {
+        const dateA = new Date(a.fields.date);
+        const dateB = new Date(b.fields.date);
+        return dateB - dateA;
+      });
+
+      setEntries(sortEntries);
     })();
   }, []);
 
