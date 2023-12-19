@@ -62,12 +62,10 @@ export default function JournalPage({ handleNewEntry }) {
 
     const jsonData = await response.json();
     handleNewEntry(jsonData);
-    // Clear the form after successful submission
     setInput({
       title: "",
       body: "",
       mood: "",
-      // Uncomment and add other fields if needed
       // phase: "",
       // date: "",
     });
