@@ -1,4 +1,8 @@
 import { useState } from "react";
+import DatePicker from "react-datepicker";
+import { format } from "date-fns";
+
+import "react-datepicker/dist/react-datepicker.css";
 
 const token =
   "patKTXIqrZPZMbcrF.d8be823da8d1aeff586598a1f97f961cf33ba3de31cc4a0e03c2f7962ea0989a";
@@ -9,8 +13,10 @@ export default function JournalPage({ handleNewEntry }) {
     body: "",
     mood: "",
     // phase: "",
-    date: "",
+    date: new Date(),
   });
+
+  const [startDate, setStartDate] = useState(new Date());
 
   const handleTitleChange = (event) => {
     setInput({ ...input, title: event.target.value });
@@ -23,15 +29,13 @@ export default function JournalPage({ handleNewEntry }) {
     const selectedMood = parseInt(event.target.value, 10);
     setInput({ ...input, mood: selectedMood });
   };
-
-  //   const handleSubmit = (event) => {
-  //     event.preventDefault();
-
-  // const formData = new FormData(event.target);
-  // const data = Object.fromEntries(formData);
+  const handleDateChange = (date) => {
+    setInput({ ...input, date });
+  };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    const formattedDate = format(input.date, "dd MMMM yyyy");
     const data = {
       records: [
         {
@@ -39,6 +43,7 @@ export default function JournalPage({ handleNewEntry }) {
             body: input.body,
             mood: input.mood,
             title: input.title,
+            date: formattedDate,
           },
         },
       ],
@@ -67,7 +72,7 @@ export default function JournalPage({ handleNewEntry }) {
       body: "",
       mood: "",
       // phase: "",
-      // date: "",
+      date: new Date(),
     });
   };
   //     createNewEntry();
@@ -78,6 +83,7 @@ export default function JournalPage({ handleNewEntry }) {
       <h2>so, how are you feeling?</h2>
       <form onSubmit={handleSubmit}>
         <fieldset>
+          <label>Title:</label>
           <input
             id="title"
             name="title"
@@ -87,7 +93,7 @@ export default function JournalPage({ handleNewEntry }) {
 
           <br />
           <br />
-
+          <label>Body:</label>
           <textarea
             id="body"
             name="body"
@@ -97,6 +103,7 @@ export default function JournalPage({ handleNewEntry }) {
             cols={50}
           />
           <br />
+          <label>Mood:</label>
           <select
             id="mood"
             name="mood"
@@ -110,6 +117,13 @@ export default function JournalPage({ handleNewEntry }) {
             <option value={4}>4</option>
             <option value={5}>5</option>
           </select>
+          <br />
+          <DatePicker
+            selected={input.date}
+            // onSelect={handleDateSelect}
+            onChange={handleDateChange}
+            dateFormat="dd MMMM yyyy"
+          />
           <br />
           <button type="submit">submit</button>
         </fieldset>
