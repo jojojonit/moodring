@@ -44,7 +44,7 @@ export default function MoonPage({ startDate }) {
 
   return (
     <>
-      <h2>moonpage</h2>
+      <h2>moon phase</h2>
       <img src={phase.imageUrl} alt="Moon Phase" />
     </>
   );

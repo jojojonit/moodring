@@ -1,6 +1,7 @@
 import { useState } from "react";
 import DatePicker from "react-datepicker";
 import { format } from "date-fns";
+import { useNavigate } from "react-router-dom";
 
 import "react-datepicker/dist/react-datepicker.css";
 import MoonPage from "../MoonPage/MoonPage";
@@ -16,7 +17,7 @@ export default function JournalPage({ handleNewEntry }) {
     // phase: "",
     date: new Date(),
   });
-
+  const navigate = useNavigate();
   const [startDate, setStartDate] = useState(new Date());
 
   const handleTitleChange = (event) => {
@@ -75,8 +76,16 @@ export default function JournalPage({ handleNewEntry }) {
       // phase: "",
       date: new Date(),
     });
+    // navigate("/entries", { replace: true });
   };
-  //     createNewEntry();
+
+  //   const handleClick = async (event) => {
+  //     event.preventDefault();
+  //     if (input.title === "" && input.body === "" && input.mood === "") {
+  //       return;
+  //     }
+  //     await handleSubmit(event);
+  //     navigate("/entries");
   //   };
 
   return (
