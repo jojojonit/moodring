@@ -4,7 +4,7 @@ import MoonPhase from "../../components/MoonPhase/MoonPhase";
 const token =
   "NzM0M2M2ZDEtNzNjMS00NWI2LWIzMzQtZDE0YzIwNTNjMzljOmEyZmY2MGQ5YmFmMWYyMTZlZGZlMTNhNTNkYTY3MmI1MWZhOWNjZWZhZDllZTk1ZTUzZTc2NmVkZTBiMjI4ZDkxNjM4MmNiNTllZjJmZTFmOWE2ODViM2Q2ZTYzNDFkYzJlMWFlZmMzMzVjMTJkMGNkYWI2YWQ4YjkyNjMxNTdmNzgyZDFkNTYxNmU0N2ExNzg5ZmMyYTg1M2RmNWRkNWNhZmE2ZTA2NzE5ZjY4ZmRlOWNmOGQ1YTNlNmM5OTUyYjExZGIyNjYwNjk5YjljMDYzZmNmNmQ1ZWZlYWE0NGI0";
 
-export default function MoonPage() {
+export default function MoonPage({ startDate }) {
   const [phase, setPhase] = useState({});
 
   useEffect(() => {
@@ -28,7 +28,7 @@ export default function MoonPage() {
           observer: {
             latitude: 6.56774,
             longitude: 79.88956,
-            date: "2023-12-19",
+            date: startDate,
           },
           view: {
             type: "landscape-simple",

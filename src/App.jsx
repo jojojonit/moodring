@@ -4,6 +4,7 @@ import Homepage from "./pages/Homepage/Homepage";
 import JournalPage from "./pages/JournalPage/JournalPage";
 import EntriesPage from "./pages/EntriesPage/EntriesPage";
 import { useEffect, useState } from "react";
+import MoonPage from "./pages/MoonPage/MoonPage";
 
 function App() {
   const [entries, setEntries] = useState([]);
@@ -37,6 +38,7 @@ function App() {
           element={<JournalPage handleNewEntry={addEntry} />}
         />
         <Route path="/entries" element={<EntriesPage entries={entries} />} />
+        <Route path="/moon" element={<MoonPage />} />
       </Routes>
     </>
   );

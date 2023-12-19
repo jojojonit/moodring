@@ -3,6 +3,7 @@ import DatePicker from "react-datepicker";
 import { format } from "date-fns";
 
 import "react-datepicker/dist/react-datepicker.css";
+import MoonPage from "../MoonPage/MoonPage";
 
 const token =
   "patKTXIqrZPZMbcrF.d8be823da8d1aeff586598a1f97f961cf33ba3de31cc4a0e03c2f7962ea0989a";
@@ -127,6 +128,8 @@ export default function JournalPage({ handleNewEntry }) {
           <br />
           <button type="submit">submit</button>
         </fieldset>
+
+        <MoonPage startDate={input.date} />
       </form>
     </>
   );
