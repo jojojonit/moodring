@@ -24,7 +24,7 @@ export default function JournalPage({ handleNewEntry }) {
     setInput({ ...input, title: event.target.value });
   };
   const handleBodyChange = (event) => {
-    console.log(event.target.value);
+    // console.log(event.target.value);
     setInput({ ...input, body: event.target.value });
   };
   const handleMoodChange = (event) => {
@@ -39,16 +39,12 @@ export default function JournalPage({ handleNewEntry }) {
     event.preventDefault();
     const formattedDate = format(input.date, "dd MMMM yyyy");
     const data = {
-      records: [
-        {
-          fields: {
-            body: input.body,
-            mood: input.mood,
-            title: input.title,
-            date: formattedDate,
-          },
-        },
-      ],
+      fields: {
+        body: input.body,
+        mood: input.mood,
+        title: input.title,
+        date: formattedDate,
+      },
     };
     const url = "https://api.airtable.com/v0/appRIGgG5hdxdDksC/Table%201";
     const response = await fetch(url, {
@@ -76,17 +72,8 @@ export default function JournalPage({ handleNewEntry }) {
       // phase: "",
       date: new Date(),
     });
-    // navigate("/entries", { replace: true });
+    navigate("/entries", { replace: true });
   };
-
-  //   const handleClick = async (event) => {
-  //     event.preventDefault();
-  //     if (input.title === "" && input.body === "" && input.mood === "") {
-  //       return;
-  //     }
-  //     await handleSubmit(event);
-  //     navigate("/entries");
-  //   };
 
   return (
     <>
@@ -135,7 +122,7 @@ export default function JournalPage({ handleNewEntry }) {
             dateFormat="dd MMMM yyyy"
           />
           <br />
-          <button type="submit">submit</button>
+          <button>submit</button>
         </fieldset>
 
         <MoonPage startDate={input.date} />
