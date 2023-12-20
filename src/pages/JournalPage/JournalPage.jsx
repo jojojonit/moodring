@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 import "react-datepicker/dist/react-datepicker.css";
 import MoonPage from "../MoonPage/MoonPage";
+import Navbar from "../../components/Navbar/Navbar";
 
 const token =
   "patKTXIqrZPZMbcrF.d8be823da8d1aeff586598a1f97f961cf33ba3de31cc4a0e03c2f7962ea0989a";
@@ -74,59 +75,62 @@ export default function JournalPage({ handleNewEntry }) {
   };
 
   return (
-    <div className="form-container">
-      {/* <h2 style={{ paddingLeft: "2%" }}>so, how are you feeling?</h2> */}
-      <form onSubmit={handleSubmit}>
-        <div className="form-left">
-          <label>Title:</label>
-          <input
-            id="title"
-            name="title"
-            type="title"
-            placeholder="title"
-            onChange={handleTitleChange}
-            value={input.title}
-          />
+    <>
+      <Navbar />
+      <div className="form-container">
+        {/* <h2 style={{ paddingLeft: "2%" }}>so, how are you feeling?</h2> */}
+        <form onSubmit={handleSubmit}>
+          <div className="form-left">
+            <label>Title:</label>
+            <input
+              id="title"
+              name="title"
+              type="title"
+              placeholder="title"
+              onChange={handleTitleChange}
+              value={input.title}
+            />
 
-          <label>Body:</label>
-          <textarea
-            id="body"
-            name="body"
-            placeholder="start writing..."
-            onChange={handleBodyChange}
-            value={input.body}
-            rows={10}
-            cols={50}
-          />
-        </div>
+            <label>Body:</label>
+            <textarea
+              id="body"
+              name="body"
+              placeholder="start writing..."
+              onChange={handleBodyChange}
+              value={input.body}
+              rows={10}
+              cols={50}
+            />
+          </div>
 
-        <div className="form-right">
-          <label>Mood:</label>
-          <select
-            id="mood"
-            name="mood"
-            onChange={handleMoodChange}
-            value={input.mood}
-            size={5}
-          >
-            <option value={1}>1</option>
-            <option value={2}>2</option>
-            <option value={3}>3</option>
-            <option value={4}>4</option>
-            <option value={5}>5</option>
-          </select>
+          <div className="form-right">
+            <label>Mood:</label>
+            <select
+              id="mood"
+              name="mood"
+              onChange={handleMoodChange}
+              value={input.mood}
+              size={5}
+            >
+              <option value={1}>1</option>
+              <option value={2}>2</option>
+              <option value={3}>3</option>
+              <option value={4}>4</option>
+              <option value={5}>5</option>
+            </select>
 
-          <DatePicker
-            selected={input.date}
-            // onSelect={handleDateSelect}
-            onChange={handleDateChange}
-            dateFormat="dd MMMM yyyy"
-          />
+            <DatePicker
+              selected={input.date}
+              // onSelect={handleDateSelect}
+              onChange={handleDateChange}
+              dateFormat="dd MMMM yyyy"
+            />
 
-          <MoonPage startDate={input.date} />
-          <button>submit</button>
-        </div>
-      </form>
-    </div>
+            <MoonPage startDate={input.date} />
+            <button>submit</button>
+          </div>
+        </form>
+      </div>
+    </>
   );
 }

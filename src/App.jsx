@@ -35,7 +35,7 @@ function App() {
   }, []);
 
   const addEntry = (entry) => {
-    setEntries([...entries, entry]);
+    setEntries([entry, ...entries]);
   };
 
   const handleDelete = async (id) => {

@@ -1,10 +1,12 @@
 import EntryCard from "../../components/EntryCard/EntryCard";
 import { useEffect, useState } from "react";
 import JournalEntry from "../../components/JournalEntry/JournalEntry";
+import Navbar from "../../components/Navbar/Navbar";
 
 export default function EntriesPage({ entries, handleDelete }) {
   return (
     <>
+      <Navbar />
       <div className="entry-container">
         {entries.map((entry) => (
           <EntryCard
