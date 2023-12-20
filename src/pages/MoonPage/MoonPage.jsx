@@ -12,7 +12,7 @@ const fetchMoonPhase = async (startDate, setPhase) => {
       Authorization: `Bearer ${token}`,
     },
     body: JSON.stringify({
-      format: "png",
+      format: "svg",
       style: {
         moonStyle: "default",
         backgroundStyle: "solid",
@@ -26,7 +26,7 @@ const fetchMoonPhase = async (startDate, setPhase) => {
         date: startDate,
       },
       view: {
-        type: "landscape-simple",
+        type: "portrait-simple",
         orientation: "south-up",
       },
     }),
@@ -44,8 +44,12 @@ export default function MoonPage({ startDate }) {
 
   return (
     <>
-      <h2>moon phase</h2>
-      <img src={phase.imageUrl} alt="Moon Phase" />
+      <p>moon phase</p>
+      <img
+        src={phase.imageUrl}
+        alt="Moon Phase"
+        style={{ width: "80%", paddingLeft: "11.5%", paddingBottom: "12%" }}
+      />
     </>
   );
 }

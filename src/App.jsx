@@ -5,6 +5,8 @@ import JournalPage from "./pages/JournalPage/JournalPage";
 import EntriesPage from "./pages/EntriesPage/EntriesPage";
 import { useEffect, useState } from "react";
 import MoonPage from "./pages/MoonPage/MoonPage";
+import SingleEntry from "./pages/SingleEntry/SingleEntry";
+import EntryCard from "./components/EntryCard/EntryCard";
 
 function App() {
   const [entries, setEntries] = useState([]);
@@ -45,6 +47,7 @@ function App() {
         />
         <Route path="/entries" element={<EntriesPage entries={entries} />} />
         <Route path="/moon" element={<MoonPage />} />
+        <Route path="entries/:id" element={<SingleEntry />} />
       </Routes>
     </>
   );

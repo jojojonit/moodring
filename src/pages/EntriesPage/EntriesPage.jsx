@@ -10,6 +10,7 @@ export default function EntriesPage({ entries }) {
       {entries.map((entry) => (
         <EntryCard
           key={entry.id}
+          id={entry.id}
           title={entry.fields.title}
           body={entry.fields.body}
           mood={entry.fields.mood}

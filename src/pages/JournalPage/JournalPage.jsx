@@ -76,30 +76,35 @@ export default function JournalPage({ handleNewEntry }) {
   };
 
   return (
-    <>
+    <div className="form-container">
       <h2>so, how are you feeling?</h2>
       <form onSubmit={handleSubmit}>
-        <fieldset>
+        <div className="form-left">
           <label>Title:</label>
           <input
             id="title"
             name="title"
+            type="title"
+            placeholder="title"
             onChange={handleTitleChange}
             value={input.title}
           />
 
-          <br />
-          <br />
+          {/* <br />
+          <br /> */}
           <label>Body:</label>
           <textarea
             id="body"
             name="body"
+            placeholder="start writing..."
             onChange={handleBodyChange}
             value={input.body}
             rows={10}
             cols={50}
           />
-          <br />
+        </div>
+
+        <div className="form-right">
           <label>Mood:</label>
           <select
             id="mood"
@@ -114,19 +119,18 @@ export default function JournalPage({ handleNewEntry }) {
             <option value={4}>4</option>
             <option value={5}>5</option>
           </select>
-          <br />
+
           <DatePicker
             selected={input.date}
             // onSelect={handleDateSelect}
             onChange={handleDateChange}
             dateFormat="dd MMMM yyyy"
           />
-          <br />
-          <button>submit</button>
-        </fieldset>
 
-        <MoonPage startDate={input.date} />
+          <MoonPage startDate={input.date} />
+          <button>submit</button>
+        </div>
       </form>
-    </>
+    </div>
   );
 }
