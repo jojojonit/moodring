@@ -2,7 +2,7 @@ import EntryCard from "../../components/EntryCard/EntryCard";
 import { useEffect, useState } from "react";
 import JournalEntry from "../../components/JournalEntry/JournalEntry";
 
-export default function EntriesPage({ entries }) {
+export default function EntriesPage({ entries, handleDelete }) {
   return (
     <>
       <div className="entry-container">
@@ -15,6 +15,7 @@ export default function EntriesPage({ entries }) {
             mood={entry.fields.mood}
             phase={entry.fields.phase}
             date={entry.fields.date}
+            handleDelete={handleDelete}
           />
         ))}
       </div>

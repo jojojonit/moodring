@@ -37,6 +37,28 @@ function App() {
   const addEntry = (entry) => {
     setEntries([...entries, entry]);
   };
+
+  const handleDelete = async (id) => {
+    const url = `https://api.airtable.com/v0/appRIGgG5hdxdDksC/Table%201/${id}`;
+    const response = await fetch(url, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    if (!response.ok) {
+      console.error("Failed to delete entry. Status:", response.status);
+      const errorData = await response.json();
+      console.error("Error details:", errorData);
+      return;
+    }
+
+    const jsonData = await response.json();
+    setEntries(entries.filter((entry) => entry.id !== id));
+  };
+
   return (
     <>
       <Routes>
@@ -45,7 +67,12 @@ function App() {
           path="/journal"
           element={<JournalPage handleNewEntry={addEntry} />}
         />
-        <Route path="/entries" element={<EntriesPage entries={entries} />} />
+        <Route
+          path="/entries"
+          element={
+            <EntriesPage entries={entries} handleDelete={handleDelete} />
+          }
+        />
         <Route path="/moon" element={<MoonPage />} />
         <Route path="entries/:id" element={<SingleEntry />} />
       </Routes>

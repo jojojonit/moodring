@@ -1,6 +1,18 @@
 import { Link } from "react-router-dom";
 
-export default function EntryCard({ id, title, body, mood, phase, date }) {
+export default function EntryCard({
+  id,
+  title,
+  body,
+  mood,
+  phase,
+  date,
+  handleDelete,
+}) {
+  // const handleDelete = (event) => {
+  //   event.preventDefault();
+  //   console.log("delete");
+  // };
   return (
     <>
       <div className="entry-card">
@@ -13,6 +25,7 @@ export default function EntryCard({ id, title, body, mood, phase, date }) {
         <p>{mood}</p>
         <p>{phase}</p>
         <p>{date}</p>
+        <button onClick={() => handleDelete(id)}>🗑</button>
       </div>
     </>
   );
