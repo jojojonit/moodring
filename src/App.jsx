@@ -33,7 +33,7 @@ function App() {
   }, []);
 
   const addEntry = (entry) => {
-    setEntries([entry, ...entries]);
+    setEntries([...entries, entry]);
   };
   return (
     <>
