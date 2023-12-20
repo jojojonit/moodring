@@ -22,43 +22,43 @@ export default function JournalEntry({ createEntry }) {
   const handleMoodChange = (event) => {
     setData({ ...data, mood: event.target.value });
   };
-  //   const handleSubmit = (event) => {
-  //     event.preventDefault();
-  //     const formData = new FormData(event.target);
-  //     const data = Object.fromEntries(formData);
-  //     const createEntry = async () => {
-  //       const url = "https://api.airtable.com/v0/appRIGgG5hdxdDksC/Table%201";
-  //       const response = await fetch(url, {
-  //         method: "POST",
-  //         headers: {
-  //           "Content-Type": "application/json",
-  //           Authorization: `Bearer ${token}`,
-  //         },
-  //         body: JSON.stringify(data),
-  //       });
-  //       const jsonData = await response.json();
-  //       addEntry(jsonData);
-  //     };
-  //     createEntry();
-  //   };
-
-  const handleSubmit = async (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);
-    const url = "https://api.airtable.com/v0/appRIGgG5hdxdDksC/Table%201";
-    const response = await fetch(url, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-      body: JSON.stringify(data),
-    });
-    const jsonData = await response.json();
-    setData({ ...data, ...jsonData });
-    createEntry(jsonData);
+    const createEntry = async () => {
+      const url = "https://api.airtable.com/v0/appRIGgG5hdxdDksC/Table%201";
+      const response = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(data),
+      });
+      const jsonData = await response.json();
+      addEntry(jsonData);
+    };
+    createEntry();
   };
+
+  //   const handleSubmit = async (event) => {
+  //     event.preventDefault();
+  //     const formData = new FormData(event.target);
+  //     const data = Object.fromEntries(formData);
+  //     const url = "https://api.airtable.com/v0/appRIGgG5hdxdDksC/Table%201";
+  //     const response = await fetch(url, {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //         Authorization: `Bearer ${token}`,
+  //       },
+  //       body: JSON.stringify(data),
+  //     });
+  //     const jsonData = await response.json();
+  //     setData({ ...data, ...jsonData });
+  //     createEntry(jsonData);
+  //   };
 
   return (
     <>

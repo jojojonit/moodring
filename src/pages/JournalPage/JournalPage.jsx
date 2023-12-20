@@ -14,7 +14,6 @@ export default function JournalPage({ handleNewEntry }) {
     title: "",
     body: "",
     mood: "",
-    // phase: "",
     date: new Date(),
   });
   const navigate = useNavigate();
@@ -69,7 +68,6 @@ export default function JournalPage({ handleNewEntry }) {
       title: "",
       body: "",
       mood: "",
-      // phase: "",
       date: new Date(),
     });
     navigate("/entries", { replace: true });
@@ -77,7 +75,7 @@ export default function JournalPage({ handleNewEntry }) {
 
   return (
     <div className="form-container">
-      <h2>so, how are you feeling?</h2>
+      {/* <h2 style={{ paddingLeft: "2%" }}>so, how are you feeling?</h2> */}
       <form onSubmit={handleSubmit}>
         <div className="form-left">
           <label>Title:</label>
@@ -90,8 +88,6 @@ export default function JournalPage({ handleNewEntry }) {
             value={input.title}
           />
 
-          {/* <br />
-          <br /> */}
           <label>Body:</label>
           <textarea
             id="body"

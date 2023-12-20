@@ -44,11 +44,19 @@ export default function MoonPage({ startDate }) {
 
   return (
     <>
-      <p>moon phase</p>
+      <p
+        style={{
+          fontSize: "12px",
+          textTransform: "uppercase",
+          textAlign: "center",
+        }}
+      >
+        moon phase
+      </p>
       <img
         src={phase.imageUrl}
         alt="Moon Phase"
-        style={{ width: "80%", paddingLeft: "11.5%", paddingBottom: "12%" }}
+        style={{ width: "70%", paddingLeft: "16%", paddingBottom: "12%" }}
       />
     </>
   );
