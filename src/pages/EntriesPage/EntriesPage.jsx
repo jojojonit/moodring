@@ -39,15 +39,35 @@ export default function EntriesPage({ entries, handleDelete }) {
           />
         ))}
       </div>
-
-      <button onClick={() => handleFilter("dreamy")}>dreamy</button>
-      <button onClick={() => handleFilter("energetic")}>energetic</button>
-      <button onClick={() => handleFilter("productive")}>productive</button>
-      <button onClick={() => handleFilter("calm")}>calm</button>
-      <button onClick={() => handleFilter("introspective")}>
-        introspective
-      </button>
-      <button onClick={clearFilter}>reset</button>
+      <div className="mood-container">
+        <button className="mood dreamy" onClick={() => handleFilter("dreamy")}>
+          dreamy
+        </button>
+        <button
+          className="mood energetic"
+          onClick={() => handleFilter("energetic")}
+        >
+          energetic
+        </button>
+        <button
+          className="mood inspired"
+          onClick={() => handleFilter("inspired")}
+        >
+          inspired
+        </button>
+        <button className="mood calm" onClick={() => handleFilter("calm")}>
+          calm
+        </button>
+        <button
+          className="mood introspective"
+          onClick={() => handleFilter("introspective")}
+        >
+          introspective
+        </button>
+        <button className="mood" onClick={clearFilter}>
+          reset
+        </button>
+      </div>
     </>
   );
 }

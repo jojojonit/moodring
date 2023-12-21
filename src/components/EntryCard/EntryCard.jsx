@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const moodColors = {
   dreamy: "#FFC6D9",
   energetic: "#FFFB83",
-  productive: "#D2FF5F",
+  inspired: "#D2FF5F",
   calm: "#AEF1EF",
   introspective: "#F8B9FF",
 };
