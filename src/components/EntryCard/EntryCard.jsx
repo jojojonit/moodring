@@ -1,11 +1,19 @@
 import { Link } from "react-router-dom";
 
+// const moodColors = {
+//   dreamy: "#FFC6D9",
+//   energetic: "#FFFB83",
+//   inspired: "#D2FF5F",
+//   calm: "#AEF1EF",
+//   introspective: "#F8B9FF",
+// };
+
 const moodColors = {
-  dreamy: "#FFC6D9",
-  energetic: "#FFFB83",
-  inspired: "#D2FF5F",
-  calm: "#AEF1EF",
-  introspective: "#F8B9FF",
+  dreamy: "#ffc6d97f",
+  energetic: "#fffb8380",
+  inspired: "#d2ff5f7f",
+  calm: "#aef1ef7f",
+  introspective: "#f8b9ff7f",
 };
 
 export default function EntryCard({
