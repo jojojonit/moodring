@@ -28,8 +28,8 @@ export default function JournalPage({ handleNewEntry }) {
     setInput({ ...input, body: event.target.value });
   };
   const handleMoodChange = (event) => {
-    const selectedMood = parseInt(event.target.value, 10);
-    setInput({ ...input, mood: selectedMood });
+    // const selectedMood = parseInt(event.target.value, 10);
+    setInput({ ...input, mood: event.target.value });
   };
   const handleDateChange = (date) => {
     setInput({ ...input, date });
@@ -114,11 +114,11 @@ export default function JournalPage({ handleNewEntry }) {
               <option value="" disabled>
                 how are you feeling?
               </option>
-              <option value={1}>romantic</option>
-              <option value={2}>energetic</option>
-              <option value={3}>inspired</option>
-              <option value={4}>calm</option>
-              <option value={5}>introspective</option>
+              <option value="romantic">romantic</option>
+              <option value="energetic">energetic</option>
+              <option value="inspired">inspired</option>
+              <option value="calm">calm</option>
+              <option value="introspective">introspective</option>
             </select>
 
             <DatePicker
