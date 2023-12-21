@@ -114,7 +114,7 @@ export default function JournalPage({ handleNewEntry }) {
               <option value="" disabled>
                 how are you feeling?
               </option>
-              <option value="romantic">romantic</option>
+              <option value="dreamy">dreamy</option>
               <option value="energetic">energetic</option>
               <option value="inspired">inspired</option>
               <option value="calm">calm</option>

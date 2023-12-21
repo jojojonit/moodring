@@ -136,9 +136,6 @@ select{
   font-family: 'Sometype Mono', monospace;
 }
 
-select option[value="1"] {
-  background-color:#FF90AC;
-}
 
 
 option{
