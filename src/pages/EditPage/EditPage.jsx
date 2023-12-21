@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
 const token =
   "patKTXIqrZPZMbcrF.d8be823da8d1aeff586598a1f97f961cf33ba3de31cc4a0e03c2f7962ea0989a";
 
-export default function EditPage({ entries }) {
+export default function EditPage({ entries, setEntries }) {
   const { id } = useParams();
   const navigate = useNavigate();
   const entry = entries.find((entry) => entry.id === id);
@@ -37,6 +37,16 @@ export default function EditPage({ entries }) {
         }),
       });
       const jsonData = await response.json();
+      setEntries(
+        entries.map((entry) => {
+          if (entry.id === id) {
+            return jsonData;
+          } else {
+            return entry;
+          }
+        })
+      );
+      navigate(`/entries/${id}`);
       return jsonData;
     } catch (error) {
       console.error("Error updating entry:", error);
@@ -46,13 +56,7 @@ export default function EditPage({ entries }) {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
-    try {
-      await updateEntry();
-      navigate("/entries");
-    } catch (error) {
-      console.error("error updating", error);
-    }
+    await updateEntry();
   };
 
   return (

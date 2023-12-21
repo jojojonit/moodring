@@ -78,7 +78,7 @@ function App() {
         <Route path="entries/:id" element={<SingleEntry entries={entries} />} />
         <Route
           path="entries/:id/edit"
-          element={<EditPage entries={entries} />}
+          element={<EditPage entries={entries} setEntries={setEntries} />}
         />
       </Routes>
     </>
