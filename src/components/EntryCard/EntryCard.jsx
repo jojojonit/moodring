@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-
+//* alternate colors
 // const moodColors = {
 //   dreamy: "#FFC6D9",
 //   energetic: "#FFFB83",

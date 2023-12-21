@@ -6,7 +6,6 @@ import EntriesPage from "./pages/EntriesPage/EntriesPage";
 import { useEffect, useState } from "react";
 import MoonPage from "./pages/MoonPage/MoonPage";
 import SingleEntry from "./pages/SingleEntry/SingleEntry";
-import EntryCard from "./components/EntryCard/EntryCard";
 import EditPage from "./pages/EditPage/EditPage";
 
 function App() {

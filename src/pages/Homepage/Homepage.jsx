@@ -1,5 +1,4 @@
 import Navbar from "../../components/Navbar/Navbar";
-import MoonPage from "../MoonPage/MoonPage";
 
 export default function Homepage() {
   return (
