@@ -110,13 +110,15 @@ export default function JournalPage({ handleNewEntry }) {
               name="mood"
               onChange={handleMoodChange}
               value={input.mood}
-              size={5}
             >
-              <option value={1}>1</option>
-              <option value={2}>2</option>
-              <option value={3}>3</option>
-              <option value={4}>4</option>
-              <option value={5}>5</option>
+              <option value="" disabled>
+                how are you feeling?
+              </option>
+              <option value={1}>romantic</option>
+              <option value={2}>energetic</option>
+              <option value={3}>inspired</option>
+              <option value={4}>calm</option>
+              <option value={5}>introspective</option>
             </select>
 
             <DatePicker
