@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import MoonPage from "./pages/MoonPage/MoonPage";
 import SingleEntry from "./pages/SingleEntry/SingleEntry";
 import EntryCard from "./components/EntryCard/EntryCard";
+import EditPage from "./pages/EditPage/EditPage";
 
 function App() {
   const [entries, setEntries] = useState([]);
@@ -75,6 +76,10 @@ function App() {
         />
         <Route path="/moon" element={<MoonPage />} />
         <Route path="entries/:id" element={<SingleEntry entries={entries} />} />
+        <Route
+          path="entries/:id/edit"
+          element={<EditPage entries={entries} />}
+        />
       </Routes>
     </>
   );
