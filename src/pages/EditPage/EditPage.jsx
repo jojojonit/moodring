@@ -59,26 +59,45 @@ export default function EditPage({ entries, setEntries }) {
     await updateEntry();
   };
 
+  const handleBack = (event) => {
+    event.preventDefault();
+    navigate(-1);
+  };
+
   return (
     <>
-      <h1>edit page</h1>
-      <form onSubmit={handleSubmit}>
-        <label>title:</label>
-        <input
-          name="title"
-          value={updatedEntry.title}
-          onChange={handleTitleChange}
-        />
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "baseline",
+          paddingRight: "0%",
+        }}
+      >
+        <h2>edit page</h2>
+        <button onClick={handleBack} className="back">
+          back
+        </button>
+      </div>
+      <div className="edit-container">
+        <form className="edit" onSubmit={handleSubmit}>
+          <label>title:</label>
+          <input
+            name="title"
+            value={updatedEntry.title}
+            onChange={handleTitleChange}
+          />
 
-        <label>body</label>
-        <textarea
-          name="body"
-          value={updatedEntry.body}
-          onChange={handleBodyChange}
-        />
+          <label>body</label>
+          <textarea
+            name="body"
+            value={updatedEntry.body}
+            onChange={handleBodyChange}
+          />
 
-        <button>update</button>
-      </form>
+          <button>update</button>
+        </form>
+      </div>
     </>
   );
 }

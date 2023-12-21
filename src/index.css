@@ -218,6 +218,26 @@ nav {
   transition: background-image 0.5s ease;
 }
 
+.edit {
+  display:flex;
+  flex-direction: column;
+  width:100%;
+}
+
+.back {
+  height: 50%;
+  padding: 5px;
+  width: 10%;
+  border-radius: 25px;
+  margin-right: 5px;
+
+}
+
+.edit-container{
+  display:flex;
+  width: 70em;
+}
+
 .dreamy:hover {
   background: radial-gradient(circle, #ffc6d97f 0%, transparent 100%);
 }
