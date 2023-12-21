@@ -1,6 +1,7 @@
 import EntryCard from "../../components/EntryCard/EntryCard";
-import { useEffect, useState } from "react";
-import JournalEntry from "../../components/JournalEntry/JournalEntry";
+import { useState } from "react";
+
+import { format } from "date-fns";
 import Navbar from "../../components/Navbar/Navbar";
 
 export default function EntriesPage({ entries, handleDelete }) {
@@ -30,7 +31,7 @@ export default function EntriesPage({ entries, handleDelete }) {
             body={entry.fields.body}
             mood={entry.fields.mood}
             phase={entry.fields.phase}
-            date={entry.fields.date}
+            date={format(new Date(entry.fields.date), "dd MMMM yyyy")}
             handleDelete={handleDelete}
           />
         ))}

@@ -9,10 +9,6 @@ export default function EntryCard({
   date,
   handleDelete,
 }) {
-  // const handleDelete = (event) => {
-  //   event.preventDefault();
-  //   console.log("delete");
-  // };
   return (
     <>
       <div className="entry-card">
