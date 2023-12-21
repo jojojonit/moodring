@@ -74,7 +74,7 @@ function App() {
           }
         />
         <Route path="/moon" element={<MoonPage />} />
-        <Route path="entries/:id" element={<SingleEntry />} />
+        <Route path="entries/:id" element={<SingleEntry entries={entries} />} />
       </Routes>
     </>
   );
