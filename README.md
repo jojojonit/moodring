@@ -22,6 +22,7 @@ MoodRing <i>(name is a work-in-progress)</i> is a personal journaling applicatio
 ## Getting started
 
 **Feel free to play around with the app <a href="https://moodring.vercel.app/">here</a>**
+
 **Entries**
 
 <img src = "./public/entries-page-1.png" width = "100%">
@@ -32,9 +33,10 @@ MoodRing <i>(name is a work-in-progress)</i> is a personal journaling applicatio
 - Filter through the different moods
 - Delete an entry with the trashcan
 - Access individual entries to edit them
-  **Journal**
 
-<img src = "./project-two/public/journal-page.png" width = "100%">
+**Journal**
+
+<img src = "./public/journal-page.png" width = "100%">
 
 - Create a new entry here
 - Pick a mood to describe how you are feeling
