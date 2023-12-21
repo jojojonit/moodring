@@ -22,7 +22,10 @@ export default function EntriesPage({ entries, handleDelete }) {
   return (
     <>
       <Navbar />
-      <div className="entry-container">
+      <div
+        className="entry-container"
+        style={{ overflowX: "auto", overflowY: "hidden" }}
+      >
         {filteredEntries.map((entry) => (
           <EntryCard
             key={entry.id}

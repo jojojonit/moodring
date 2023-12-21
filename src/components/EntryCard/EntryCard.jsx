@@ -1,5 +1,13 @@
 import { Link } from "react-router-dom";
 
+const moodColors = {
+  dreamy: "#FFC6D9",
+  energetic: "#FFFB83",
+  productive: "#D2FF5F",
+  calm: "#AEF1EF",
+  introspective: "#F8B9FF",
+};
+
 export default function EntryCard({
   id,
   title,
@@ -9,9 +17,12 @@ export default function EntryCard({
   date,
   handleDelete,
 }) {
+  const cardStyle = {
+    backgroundImage: `radial-gradient(${moodColors[mood]}, transparent)`,
+  };
   return (
     <>
-      <div className="entry-card">
+      <div className="entry-card" style={cardStyle}>
         <div className="entry-title">
           <Link to={`/entries/${id}`}>
             <h2>{title}</h2>
